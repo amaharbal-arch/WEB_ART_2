@@ -1,0 +1,434 @@
+/* RESET */
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  animation: fadeIn 1.0s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* HEADER */
+.header {
+  background-color: #000;
+  padding: 30px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: brightness(0.5) invert(1);
+  transition: opacity 0.4s ease;
+}
+
+.logo:hover img {
+  opacity: 0.8;
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+}
+
+.menu-btn span {
+  width: 25px;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.3s ease;
+  display: block;
+}
+
+.menu-btn:hover span {
+  background-color: #888;
+}
+
+/* MENÚ DESPLEGABLE */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.92) !important;
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+  border-left: 1px solid #111;
+  font-family: 'Jost', sans-serif;
+  box-shadow: -10px 0px 30px rgba(0,0,0,0.5);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.mobile-nav.active {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  }
+
+.mobile-nav-link {
+  color: #999;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin: 12px 0;
+  letter-spacing: 3px;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: transform 0.2s ease, color 0.2s ease, letter-spacing 0.2s ease, opacity 0.4s ease;
+}
+
+.mobile-nav-link.sub {
+  font-size: 1.0rem;
+  color: #666;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+.mobile-nav-link:hover {
+  transition-delay: 0s !important;
+  color: #ffffff !important;
+  transform: scale(1.50);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  letter-spacing: 5px;
+}
+
+.mobile-nav.active .mobile-nav-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav.active .mobile-nav-link:nth-child(1) { transition-delay: 0.3s; }
+.mobile-nav.active .mobile-nav-link:nth-child(2) { transition-delay: 0.4s; }
+.mobile-nav.active .mobile-nav-link:nth-child(3) { transition-delay: 0.5s; }
+.mobile-nav.active .mobile-nav-link:nth-child(4) { transition-delay: 0.6s; }
+.mobile-nav.active .mobile-nav-link:nth-child(5) { transition-delay: 0.7s; }
+.mobile-nav.active .mobile-nav-link:nth-child(6) { transition-delay: 0.8s; }
+
+.mobile-nav-link:active {
+  color: #fff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
+  transition: 0.2s;
+  transform: scale(1.0);
+}
+
+.close-menu {
+  position: absolute;
+  top: 35px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.close-menu:hover {
+  color: #ffffff !important;
+  font-size: 1.2rem;
+}
+
+/* GRILLA FOTOGRÁFICA */
+/* GRILLA FOTOGRÁFICA */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  /* Animación que se dispara cada vez que el elemento se crea/renderiza */
+  animation: aflorar 4.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes aflorar {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.photo-item {
+  line-height: 0;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background-color: #000;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.0s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* El resto del código se mantiene igual que tu original */
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,0.95);
+  z-index: 3000; 
+  display: none; 
+  flex-direction: column;
+  justify-content: left; 
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 80vw;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+}
+
+#lightboxImg {
+  height: 80vh !important;
+  width: auto !important;
+  max-width: 100vw;
+  display: block;
+  object-fit: contain;
+  margin-top: 30px; 
+}
+
+/* ESTILO DE LA X */
+.lightbox-close {
+  display: none; 
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  color: #ffffff;
+  z-index: 4000; 
+  cursor: pointer;
+  line-height: 1;
+}
+.lightbox-close:hover{
+  color: #ffffff !important;
+  font-size: 1.5rem;
+}
+/* SOLO APARECE EN CELULARES */
+@media (max-width: 768px) {
+  .lightbox-close {
+    display: block !important;
+  }
+}
+
+/* FLECHAS DE NAVEGACIÓN */
+.nav-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%) !important;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px;      
+  z-index: 3100;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn svg {
+  color: rgba(255, 255, 255, 0.1) !important; 
+  fill: none !important; 
+  stroke: currentColor !important;
+  stroke-width: 0.5px !important; 
+  width: 37px !important;
+  height: 37px !important;
+  transition: all 0.4s ease;
+}
+/* 1. Posición base: Izquierda rotada, Derecha normal */
+.prev svg { 
+  transform: rotate(180deg) !important; 
+}
+
+.next svg { 
+  transform: rotate(0deg) !important; 
+}
+
+/* 2. Hover: Ambas se iluminan */
+.nav-btn:hover svg {
+  color: rgba(255, 255, 255, 1.3) !important;
+}
+
+/* 3. Hover específico: Para que no se den vuelta al crecer */
+.prev:hover svg {
+  transform: rotate(180deg) scale(1.2)!important;
+}
+
+.next:hover svg {
+  transform: rotate(0deg) scale(1.2)!important;
+}
+
+.prev { left: 4% !important; }
+.next { right: 4% !important; }
+
+/* TEXTO DE LA OBRA (ESQUINA INFERIOR IZQUIERDA) */
+.artwork-info {
+  margin-top: 8px; 
+  font-family: 'Jost', sans-serif;
+  width: auto; 
+  max-width: 80vw;
+  text-align: left; 
+  cursor: default;
+}
+.artwork-info h3 {
+  font-size: 0.60rem;
+  font-family: 'Jost', sans-serif;
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  transition: color 0.4s ease;
+}
+
+.artwork-info p {
+  font-size: 0.5rem;
+  font-family: 'Jost', sans-serif;
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+.artwork-info:hover {
+  transform: scale(1); 
+  transform-origin: left; 
+}
+
+.artwork-info:hover h3 {
+  color:rgba(255, 255, 255, 0.7);
+}
+
+.artwork-info:hover p {
+  color: rgba(255, 255, 255, 0.6); 
+}
+/* FOOTER */
+@keyframes aflorarContactos {
+  0% { opacity: 0; transform: translateY(10px); visibility: hidden; }
+  /* Eliminamos el 95% para que la aparición sea constante y suave desde el inicio */
+  100% { opacity: 1; transform: translateY(0); visibility: visible; pointer-events: auto; } 
+}
+
+
+.footer-minimal {
+  background-color: #000;
+  padding: 50px 20px;
+  text-align: center;
+  border-top: 1px solid #111;
+  display: block;
+  opacity: 0; 
+  pointer-events: none;
+}
+.footer-activo {
+  animation: aflorarContactos 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  /* ?? Ingeniería de Invisibilidad: Elimina la vibración de píxeles */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.social-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: #888;
+  margin-top: 50px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.social-title:hover {
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  gap: 35px;
+  margin-bottom: 10px;
+  margin-top: 45px;
+  color: #666;
+}
+
+.footer-social-icons a {
+  color: #777 ;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.35);
+}
+
+.footer-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #f5f5f5 !important; 
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 150px auto 60px auto;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .photo-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .mobile-nav { width: 100%; } 
+}
+
+@media (max-width: 480px) {
+  .photo-grid { grid-template-columns: 1fr; }
+}
