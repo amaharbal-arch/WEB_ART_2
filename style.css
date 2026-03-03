@@ -51,7 +51,7 @@ body {
   opacity: 0.8;
 }
 
-/* BOT”N HAMBURGUESA */
+/* BOT√ìN HAMBURGUESA */
 .menu-btn {
   background: none;
   border: none;
@@ -74,7 +74,7 @@ body {
   background-color: #888;
 }
 
-/* MEN⁄ DESPLEGABLE */
+/* MEN√ö DESPLEGABLE */
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -169,14 +169,14 @@ body {
   font-size: 1.2rem;
 }
 
-/* GRILLA FOTOGR¡FICA */
-/* GRILLA FOTOGR¡FICA */
+/* GRILLA FOTOGR√ÅFICA */
+/* GRILLA FOTOGR√ÅFICA */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  /* AnimaciÛn que se dispara cada vez que el elemento se crea/renderiza */
-  animation: aflorar 4.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  /* Animaci√≥n que se dispara cada vez que el elemento se crea/renderiza */
+  animation: aflorar 5.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes aflorar {
@@ -203,7 +203,7 @@ body {
   filter: brightness(1.2);
 }
 
-/* El resto del cÛdigo se mantiene igual que tu original */
+/* El resto del c√≥digo se mantiene igual que tu original */
 
 /* LIGHTBOX */
 .lightbox {
@@ -257,7 +257,7 @@ body {
   }
 }
 
-/* FLECHAS DE NAVEGACI”N */
+/* FLECHAS DE NAVEGACI√ìN */
 .nav-btn {
   position: absolute;
   top: 45%;
@@ -282,7 +282,7 @@ body {
   height: 37px !important;
   transition: all 0.4s ease;
 }
-/* 1. PosiciÛn base: Izquierda rotada, Derecha normal */
+/* 1. Posici√≥n base: Izquierda rotada, Derecha normal */
 .prev svg { 
   transform: rotate(180deg) !important; 
 }
@@ -296,7 +296,7 @@ body {
   color: rgba(255, 255, 255, 1.3) !important;
 }
 
-/* 3. Hover especÌfico: Para que no se den vuelta al crecer */
+/* 3. Hover espec√≠fico: Para que no se den vuelta al crecer */
 .prev:hover svg {
   transform: rotate(180deg) scale(1.2)!important;
 }
@@ -350,7 +350,7 @@ body {
 /* FOOTER */
 @keyframes aflorarContactos {
   0% { opacity: 0; transform: translateY(10px); visibility: hidden; }
-  /* Eliminamos el 95% para que la apariciÛn sea constante y suave desde el inicio */
+  /* Eliminamos el 95% para que la aparici√≥n sea constante y suave desde el inicio */
   100% { opacity: 1; transform: translateY(0); visibility: visible; pointer-events: auto; } 
 }
 
@@ -366,7 +366,7 @@ body {
 }
 .footer-activo {
   animation: aflorarContactos 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  /* ?? IngenierÌa de Invisibilidad: Elimina la vibraciÛn de pÌxeles */
+  /* ?? Ingenier√≠a de Invisibilidad: Elimina la vibraci√≥n de p√≠xeles */
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -431,4 +431,5 @@ body {
 
 @media (max-width: 480px) {
   .photo-grid { grid-template-columns: 1fr; }
+
 }
